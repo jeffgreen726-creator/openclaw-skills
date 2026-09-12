@@ -27,6 +27,35 @@ cp -r multi-model-council ~/.openclaw/workspace/skills/
 /council Should we open-source our agent framework?
 ```
 
+## Assurance
+
+Every skill must have a matching profile under `assurance/`, realistic routing
+fixtures under `evals/`, and an exact SHA-256 identity.
+
+Run the dependency-free structural gate:
+
+```bash
+python3 scripts/validate_skills.py
+```
+
+The promotion gate must remain blocked while a material change is
+`REOPENED`:
+
+```bash
+python3 scripts/validate_skills.py --require-certified
+```
+
+Promotion requires repeated routing tests, behavioral comparison against the
+same tasks without the skill, retained execution traces, pinned security scans,
+and independent verification. A valid Markdown file is not a certified
+capability.
+
+The assurance baselines track the
+[Agent Skills specification](https://github.com/agentskills/agentskills),
+[OpenClaw skill runtime](https://github.com/openclaw/openclaw), and current
+[Codex plugin examples](https://github.com/openai/plugins). External scanners
+inform admission but never grant authority.
+
 ## About
 
 These skills are maintained by
