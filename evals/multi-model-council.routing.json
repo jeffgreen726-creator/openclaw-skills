@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "skill_name": "multi-model-council",
+  "purpose": "Measure routing precision and recall with realistic positive prompts and keyword-overlapping near misses.",
+  "cases": [
+    {
+      "id": "positive-explicit-council",
+      "prompt": "/council Should we open-source the orchestration layer or keep it proprietary?",
+      "should_trigger": true,
+      "near_miss": false
+    },
+    {
+      "id": "positive-war-table",
+      "prompt": "Run a war table on launching Terry Tree first versus starting with heavy equipment intelligence.",
+      "should_trigger": true,
+      "near_miss": false
+    },
+    {
+      "id": "positive-deliberation",
+      "prompt": "I want a structured deliberation with independent technical, operating, revenue, and risk perspectives before we choose the next wedge.",
+      "should_trigger": true,
+      "near_miss": false
+    },
+    {
+      "id": "positive-models-named",
+      "prompt": "Have Grok, Gemini, and Codex independently assess this architecture choice, surface their disagreements, and give me one verdict.",
+      "should_trigger": true,
+      "near_miss": false
+    },
+    {
+      "id": "positive-debate",
+      "prompt": "Debate both sides of acquiring this company, preserve the strongest dissent, and tell me what evidence would change the decision.",
+      "should_trigger": true,
+      "near_miss": false
+    },
+    {
+      "id": "positive-council-session",
+      "prompt": "Start a council session on whether Ascendant should operate its own model gateway.",
+      "should_trigger": true,
+      "near_miss": false
+    },
+    {
+      "id": "positive-independent-models",
+      "prompt": "Use genuinely independent models to stress-test this irreversible vendor decision before we approve it.",
+      "should_trigger": true,
+      "near_miss": false
+    },
+    {
+      "id": "positive-multi-agent-verdict",
+      "prompt": "Get independent agent perspectives on this production cutover, make them challenge material conflicts, then synthesize a bounded verdict.",
+      "should_trigger": true,
+      "near_miss": false
+    },
+    {
+      "id": "positive-board-style",
+      "prompt": "Convene a small AI board to evaluate the downside, economics, execution burden, and timing of this launch.",
+      "should_trigger": true,
+      "near_miss": false
+    },
+    {
+      "id": "positive-council-typo",
+      "prompt": "Can you run a counsil on whether we should freeze this capability or keep it in reconnaissance?",
+      "should_trigger": true,
+      "near_miss": false
+    },
+    {
+      "id": "negative-ordinary-architecture",
+      "prompt": "Which database should we use for the decision ledger?",
+      "should_trigger": false,
+      "near_miss": true
+    },
+    {
+      "id": "negative-pros-cons",
+      "prompt": "Give me the pros and cons of open-sourcing our internal agent framework.",
+      "should_trigger": false,
+      "near_miss": true
+    },
+    {
+      "id": "negative-risk-assessment",
+      "prompt": "Assess the security risks in this OpenClaw configuration.",
+      "should_trigger": false,
+      "near_miss": true
+    },
+    {
+      "id": "negative-red-team",
+      "prompt": "Red-team this permission model and list the most serious attack paths.",
+      "should_trigger": false,
+      "near_miss": true
+    },
+    {
+      "id": "negative-direct-recommendation",
+      "prompt": "Should Ascendant use Postgres or SQLite for this local prototype?",
+      "should_trigger": false,
+      "near_miss": true
+    },
+    {
+      "id": "negative-comparison",
+      "prompt": "Compare these three provider proposals and recommend the best one.",
+      "should_trigger": false,
+      "near_miss": true
+    },
+    {
+      "id": "negative-second-opinion",
+      "prompt": "Give me a second opinion on this rollout plan.",
+      "should_trigger": false,
+      "near_miss": true
+    },
+    {
+      "id": "negative-council-agenda",
+      "prompt": "Write an agenda for tomorrow's city council meeting.",
+      "should_trigger": false,
+      "near_miss": true
+    },
+    {
+      "id": "negative-roleplay",
+      "prompt": "Write a dialogue between a strategist and an engineer for a training video.",
+      "should_trigger": false,
+      "near_miss": true
+    },
+    {
+      "id": "negative-evidence-research",
+      "prompt": "Search current primary sources and verify whether this market claim is true.",
+      "should_trigger": false,
+      "near_miss": true
+    }
+  ]
+}
