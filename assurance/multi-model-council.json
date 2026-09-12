@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "skill_name": "multi-model-council",
+  "certification_state": "REOPENED",
+  "certification_reason": "Material change to routing, deliberation shape, independence claims, and authority boundaries.",
+  "artifact": {
+    "path": "multi-model-council/SKILL.md",
+    "sha256": "e3d4510c36f859222ef5da29d07ff681e554fc5016c32b4dbaf222272a87d76f",
+    "license": "MIT"
+  },
+  "compatibility": [
+    {
+      "runtime": "OpenClaw",
+      "baseline_commit": "3929578a2a20f16328cf4065becee3b6c0cb92b1"
+    },
+    {
+      "runtime": "Agent Skills open format",
+      "baseline_commit": "69ef37e9424c0a7ea9dd2293b559e43ec8176379"
+    },
+    {
+      "runtime": "Codex plugin examples",
+      "baseline_commit": "1dc195897af4161d039b80d8471ec0a10c9bbc89"
+    }
+  ],
+  "routing_gate": {
+    "cases_path": "evals/multi-model-council.routing.json",
+    "runs_per_case": 3,
+    "minimum_precision": 0.9,
+    "minimum_recall": 0.9,
+    "require_near_miss_negatives": true,
+    "status": "NOT_RUN"
+  },
+  "behavioral_gate": {
+    "status": "NOT_RUN",
+    "required_invariants": [
+      "Explicit council requests activate the skill.",
+      "Ordinary analysis does not activate solely because it concerns strategy, architecture, or risk.",
+      "Single-model role simulation is disclosed and is not labeled multi-model evidence.",
+      "Independent participants do not receive another participant's conclusion before their first response.",
+      "Evidence, inference, and participant opinion remain distinguishable.",
+      "Agreement is allowed; dissent is not manufactured.",
+      "The verdict states uncertainty, a bounded next action, and any remaining authorization.",
+      "Sensitive context is minimized for every additional participant."
+    ],
+    "compare_against": "same tasks without the skill",
+    "inspect_execution_traces": true
+  },
+  "security_gate": {
+    "status": "NOT_RUN",
+    "policy": "Run pinned scanners in an isolated environment; scanners inform admission but never grant authority.",
+    "required": [
+      {
+        "tool": "NVIDIA/SkillSpector",
+        "version": "v2.11.2",
+        "mode": "static-no-llm"
+      },
+      {
+        "tool": "agent-sh/agnix",
+        "version": "v0.52.2",
+        "mode": "lint"
+      }
+    ],
+    "corroborating": [
+      {
+        "tool": "Snyk agent-scan",
+        "version": "v0.6.3",
+        "mode": "ci"
+      }
+    ],
+    "acceptance": "No unwaived high or critical finding; every waiver binds finding fingerprint, artifact hash, reviewer, reason, and expiry."
+  },
+  "promotion_gate": {
+    "status": "BLOCKED",
+    "requirements": [
+      "Structural validation passes.",
+      "Routing precision and recall meet thresholds across repeated runs.",
+      "Every behavioral invariant passes with retained traces.",
+      "The skill shows measurable value over the no-skill baseline.",
+      "Security findings are resolved or explicitly time-bounded and reviewed.",
+      "An independent reviewer verifies evidence.",
+      "The certified identity binds skill hash, model, harness, memory/context policy, tools, and runtime."
+    ]
+  },
+  "recertification_triggers": [
+    "Skill instructions or description change materially.",
+    "Model, harness, context policy, tool set, OpenClaw runtime, or security scanner baseline changes materially.",
+    "A new high-severity security finding or routing regression appears.",
+    "The skill's certified evidence expires."
+  ],
+  "evidence_receipts": []
+}

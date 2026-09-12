@@ -1,0 +1,50 @@
+name: Skill assurance
+
+on:
+  pull_request:
+    paths:
+      - "**/SKILL.md"
+      - "assurance/**"
+      - "evals/**"
+      - "scripts/validate_skills.py"
+      - ".github/workflows/skill-assurance.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "**/SKILL.md"
+      - "assurance/**"
+      - "evals/**"
+      - "scripts/validate_skills.py"
+      - ".github/workflows/skill-assurance.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: skill-assurance-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  structural:
+    name: Structural assurance
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out exact revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Validate skill artifacts and fixtures
+        run: python3 scripts/validate_skills.py
+
+  certification:
+    name: Promotion certification
+    needs:
+      - structural
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out exact revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Require independent recertification evidence
+        run: python3 scripts/validate_skills.py --require-certified
