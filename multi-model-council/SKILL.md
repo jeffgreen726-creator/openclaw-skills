@@ -1,6 +1,7 @@
 ---
 name: multi-model-council
 description: Structure a council deliberation when the user explicitly asks for one, or when a consequential decision would benefit from independent model perspectives.
+license: MIT
 metadata:
   openclaw:
     emoji: "crown"
